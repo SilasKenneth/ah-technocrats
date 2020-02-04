@@ -41,8 +41,9 @@ class BaseTestCase(TestCase):
         self.client = APIClient()
         self.register_url = reverse("authentication:user-signup")
         self.login_url = reverse("authentication:user-login")
-        response = self.client.post(self.login_url, self.login_data, format='json')
+        login_url = self.login_url
+        response = self.client.post(login_url, self.login_data, format='json')
         self.token = "dummytokenhere"
         self.user_url = reverse('authentication:user-retrieve-profile')
         self.user_author = reverse('authentication:user-signup')
-        
+        print(response)
